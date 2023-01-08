@@ -66,8 +66,6 @@
 				error: onLoading,
 				data: queryParams
 			})
-
-
 		})
 </script>
 
