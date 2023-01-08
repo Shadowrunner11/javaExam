@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.pricning.serv.model.Pricing">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="carModel" type="String" />
+		<field name="identityDocument" type="String" />
+		<field name="sucursal" type="String" />
+		<field name="department" type="String" />
+		<field name="province" type="String" />
+		<field name="productType" type="String" />
+		<field name="productModel" type="String" />
+		<field name="prodcutVersion" type="String" />
+		<field name="contactChannel" type="String" />
+		<field name="phone" type="String" />
+		<field name="clientType" type="String" />
+	</model>
+</model-hints>

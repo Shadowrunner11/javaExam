@@ -1,0 +1,6 @@
+Bundle-Name: com.example.serv
+Bundle-SymbolicName: com.example.serv
+Bundle-Version: 1.0.0
+Export-Package: dto.*,template.*
+
+Import-Package: *;resolution:=optional

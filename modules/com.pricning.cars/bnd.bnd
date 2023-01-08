@@ -1,0 +1,5 @@
+Bundle-Name: com.pricning.cars
+Bundle-SymbolicName: com.pricning.cars
+Bundle-Version: 1.0.0
+Export-Package: com.pricning.cars.constants
+Import-Package: *;resolution:=optional

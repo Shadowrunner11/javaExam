@@ -1,0 +1,10 @@
+Bundle-Name: com.pricning.serv-api
+Bundle-SymbolicName: com.pricning.serv.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.pricning.serv.exception,\
+	com.pricning.serv.model,\
+	com.pricning.serv.service,\
+	com.pricning.serv.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../com.pricning.serv-service/service.xml
