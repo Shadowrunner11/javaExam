@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
   <label for="firstName">Nombre</label>
-  <input name="firstName" id="firstName" type="text"/>
+  <input name="firstName" id="firstName" type="text" required />
 </div>
 <div class="d-flex flex-column">
   <label for="lastName">Apellido</label>
