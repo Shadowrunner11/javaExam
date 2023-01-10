@@ -39,7 +39,7 @@ import org.springframework.http.HttpMethod;
 		"javax.portlet.name=" + ComPricningCarsPortletKeys.COMPRICNINGCARS,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user",
-		// "com.liferay.portlet.header-portlet-javascript=/js/jquery.validate.min.js"
+		"com.liferay.portlet.header-portlet-javascript=/js/jquery.validate.min.js"
 	},
 	service = Portlet.class
 )

@@ -67,6 +67,8 @@
 				data: queryParams
 			})
 		})
+		
+		$('[data-form="pricing"]').validate()
 </script>
 
 
