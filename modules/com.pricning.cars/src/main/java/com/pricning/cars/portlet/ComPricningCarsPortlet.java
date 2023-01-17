@@ -5,6 +5,7 @@ import com.pricning.serv.model.Pricing;
 import com.pricning.serv.service.PricingLocalServiceUtil;
 
 import dto.CarsResponseDTO;
+import dto.ContactsResponseDTO;
 import dto.LocationsResponseDTO;
 import template.RestTemplateImplemetation;
 
@@ -59,8 +60,17 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 
 	private LocationsResponseDTO getLocationsResponseDTO(){
 		return restTemplate.serviceInvocation(
-			"http://localhost:3000/location",
+			"https://63bf2601585bedcb36c072f7.mockapi.io/api/v1/locations/1",
 			LocationsResponseDTO.class, 
+			null,
+			HttpMethod.GET
+		);
+	}
+
+	private ContactsResponseDTO getContactsResponseDTO(){
+		return restTemplate.serviceInvocation(
+			"https://mocki.io/v1/54adf7ef-d7df-4c38-8c21-0cb987382c83", 
+			ContactsResponseDTO.class, 
 			null,
 			HttpMethod.GET
 		);
@@ -71,10 +81,11 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 		
 		CarsResponseDTO carsInfo = this.getCarsResponseDTO();
 		LocationsResponseDTO locationsInfo = this.getLocationsResponseDTO();
-
+		ContactsResponseDTO contactsinfo = this.getContactsResponseDTO();
 		renderRequest.setAttribute("modelsNames", carsInfo.getNombres());
 		renderRequest.setAttribute("models", carsInfo.getModelos());
 		renderRequest.setAttribute("departments", locationsInfo.getDepartamentos());
+		renderRequest.setAttribute("contacts", contactsinfo.getTipos());
 
 		super.render(renderRequest, renderResponse);
 	}
