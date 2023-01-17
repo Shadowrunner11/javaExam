@@ -5,6 +5,8 @@ import com.pricning.serv.model.Pricing;
 import com.pricning.serv.service.PricingLocalServiceUtil;
 
 import dto.CarsResponseDTO;
+import dto.ContactsResponseDTO;
+import dto.LocationsResponseDTO;
 import template.RestTemplateImplemetation;
 
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
@@ -39,7 +41,7 @@ import org.springframework.http.HttpMethod;
 		"javax.portlet.name=" + ComPricningCarsPortletKeys.COMPRICNINGCARS,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user",
-		// "com.liferay.portlet.header-portlet-javascript=/js/jquery.validate.min.js"
+		"com.liferay.portlet.header-portlet-javascript=/js/jquery.validate.min.js"
 	},
 	service = Portlet.class
 )
@@ -47,17 +49,43 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 
 	private static final RestTemplateImplemetation restTemplate = new RestTemplateImplemetation();
 
-	@Override
-	public void render(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
-		CarsResponseDTO carsInfo = restTemplate.serviceInvocation(
+	private CarsResponseDTO getCarsResponseDTO(){
+		return restTemplate.serviceInvocation(
 			"https://mocki.io/v1/2fb5307b-acc9-4ce9-9f4e-8b4a5005edea", 
 			CarsResponseDTO.class, 
 			null,
 			HttpMethod.GET
 		);
+	}
 
+	private LocationsResponseDTO getLocationsResponseDTO(){
+		return restTemplate.serviceInvocation(
+			"https://63bf2601585bedcb36c072f7.mockapi.io/api/v1/locations/1",
+			LocationsResponseDTO.class, 
+			null,
+			HttpMethod.GET
+		);
+	}
+
+	private ContactsResponseDTO getContactsResponseDTO(){
+		return restTemplate.serviceInvocation(
+			"https://mocki.io/v1/54adf7ef-d7df-4c38-8c21-0cb987382c83", 
+			ContactsResponseDTO.class, 
+			null,
+			HttpMethod.GET
+		);
+	}
+
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
+		
+		CarsResponseDTO carsInfo = this.getCarsResponseDTO();
+		LocationsResponseDTO locationsInfo = this.getLocationsResponseDTO();
+		ContactsResponseDTO contactsinfo = this.getContactsResponseDTO();
 		renderRequest.setAttribute("modelsNames", carsInfo.getNombres());
 		renderRequest.setAttribute("models", carsInfo.getModelos());
+		renderRequest.setAttribute("departments", locationsInfo.getDepartamentos());
+		renderRequest.setAttribute("contacts", contactsinfo.getTipos());
 
 		super.render(renderRequest, renderResponse);
 	}

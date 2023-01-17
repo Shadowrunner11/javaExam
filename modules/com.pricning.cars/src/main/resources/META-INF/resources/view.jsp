@@ -25,6 +25,8 @@
 		<%@ include file="./includes/productType.jsp" %>
 		<%@ include file="./includes/productInfo.jsp" %>
 		<%@ include file="./includes/clientInfo.jsp" %>
+		<%@ include file="./includes/locationInfo.jsp" %>
+		<%@ include file="./includes/clientContact.jsp" %>
 		<button>Cotizar</button>
 		<div class="hidden spinner-border text-primary" role="status">
 			<span class="visually-hidden">Loading...</span>
@@ -67,6 +69,8 @@
 				data: queryParams
 			})
 		})
+		
+		$('[data-form="pricing"]').validate()
 </script>
 
 
