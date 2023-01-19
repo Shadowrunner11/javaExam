@@ -2,6 +2,7 @@ package com.pricning.cars.portlet;
 
 import com.pricning.cars.constants.ComPricningCarsPortletKeys;
 import com.pricning.serv.model.Pricing;
+import com.pricning.serv.service.ModelosLocalServiceUtil;
 import com.pricning.serv.service.PricingLocalServiceUtil;
 
 import dto.CarsResponseDTO;
@@ -59,7 +60,7 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 
 	private LocationsResponseDTO getLocationsResponseDTO(){
 		return restTemplate.serviceInvocation(
-			"http://localhost:3000/location",
+			"https://63bf2601585bedcb36c072f7.mockapi.io/api/v1/locations/1",
 			LocationsResponseDTO.class, 
 			null,
 			HttpMethod.GET
@@ -75,6 +76,7 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 		renderRequest.setAttribute("modelsNames", carsInfo.getNombres());
 		renderRequest.setAttribute("models", carsInfo.getModelos());
 		renderRequest.setAttribute("departments", locationsInfo.getDepartamentos());
+		renderRequest.setAttribute("sucursals", locationsInfo.getSurcursals());
 
 		super.render(renderRequest, renderResponse);
 	}
@@ -98,7 +100,7 @@ public class ComPricningCarsPortlet extends MVCPortlet {
 		pricing.setCarModel(savePrincing.apply("carModel"));
 		pricing.setFirstName(savePrincing.apply("firstName"));
 		pricing.setLastName(savePrincing.apply("lastName"));
-		pricing.setProdcutVersion(savePrincing.apply("productVersion"));
+		pricing.setProductVersion(savePrincing.apply("productVersion"));
 		pricing.setProductType(savePrincing.apply("productType"));
 		pricing.setProductModel(savePrincing.apply("productModel"));
 		pricing.setFirstName(savePrincing.apply("email"));

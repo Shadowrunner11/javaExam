@@ -52,10 +52,11 @@ public class PricingWrapper
 		attributes.put("province", getProvince());
 		attributes.put("productType", getProductType());
 		attributes.put("productModel", getProductModel());
-		attributes.put("prodcutVersion", getProdcutVersion());
+		attributes.put("productVersion", getProductVersion());
 		attributes.put("contactChannel", getContactChannel());
 		attributes.put("phone", getPhone());
 		attributes.put("clientType", getClientType());
+		attributes.put("email", getEmail());
 
 		return attributes;
 	}
@@ -128,10 +129,10 @@ public class PricingWrapper
 			setProductModel(productModel);
 		}
 
-		String prodcutVersion = (String)attributes.get("prodcutVersion");
+		String productVersion = (String)attributes.get("productVersion");
 
-		if (prodcutVersion != null) {
-			setProdcutVersion(prodcutVersion);
+		if (productVersion != null) {
+			setProductVersion(productVersion);
 		}
 
 		String contactChannel = (String)attributes.get("contactChannel");
@@ -150,6 +151,12 @@ public class PricingWrapper
 
 		if (clientType != null) {
 			setClientType(clientType);
+		}
+
+		String email = (String)attributes.get("email");
+
+		if (email != null) {
+			setEmail(email);
 		}
 	}
 
@@ -191,6 +198,16 @@ public class PricingWrapper
 	@Override
 	public String getDepartment() {
 		return model.getDepartment();
+	}
+
+	/**
+	 * Returns the email of this pricing.
+	 *
+	 * @return the email of this pricing
+	 */
+	@Override
+	public String getEmail() {
+		return model.getEmail();
 	}
 
 	/**
@@ -254,16 +271,6 @@ public class PricingWrapper
 	}
 
 	/**
-	 * Returns the prodcut version of this pricing.
-	 *
-	 * @return the prodcut version of this pricing
-	 */
-	@Override
-	public String getProdcutVersion() {
-		return model.getProdcutVersion();
-	}
-
-	/**
 	 * Returns the product model of this pricing.
 	 *
 	 * @return the product model of this pricing
@@ -281,6 +288,16 @@ public class PricingWrapper
 	@Override
 	public String getProductType() {
 		return model.getProductType();
+	}
+
+	/**
+	 * Returns the product version of this pricing.
+	 *
+	 * @return the product version of this pricing
+	 */
+	@Override
+	public String getProductVersion() {
+		return model.getProductVersion();
 	}
 
 	/**
@@ -359,6 +376,16 @@ public class PricingWrapper
 	}
 
 	/**
+	 * Sets the email of this pricing.
+	 *
+	 * @param email the email of this pricing
+	 */
+	@Override
+	public void setEmail(String email) {
+		model.setEmail(email);
+	}
+
+	/**
 	 * Sets the first name of this pricing.
 	 *
 	 * @param firstName the first name of this pricing
@@ -419,16 +446,6 @@ public class PricingWrapper
 	}
 
 	/**
-	 * Sets the prodcut version of this pricing.
-	 *
-	 * @param prodcutVersion the prodcut version of this pricing
-	 */
-	@Override
-	public void setProdcutVersion(String prodcutVersion) {
-		model.setProdcutVersion(prodcutVersion);
-	}
-
-	/**
 	 * Sets the product model of this pricing.
 	 *
 	 * @param productModel the product model of this pricing
@@ -446,6 +463,16 @@ public class PricingWrapper
 	@Override
 	public void setProductType(String productType) {
 		model.setProductType(productType);
+	}
+
+	/**
+	 * Sets the product version of this pricing.
+	 *
+	 * @param productVersion the product version of this pricing
+	 */
+	@Override
+	public void setProductVersion(String productVersion) {
+		model.setProductVersion(productVersion);
 	}
 
 	/**

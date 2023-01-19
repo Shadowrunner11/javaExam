@@ -218,19 +218,19 @@ public interface PricingModel extends BaseModel<Pricing> {
 	public void setProductModel(String productModel);
 
 	/**
-	 * Returns the prodcut version of this pricing.
+	 * Returns the product version of this pricing.
 	 *
-	 * @return the prodcut version of this pricing
+	 * @return the product version of this pricing
 	 */
 	@AutoEscape
-	public String getProdcutVersion();
+	public String getProductVersion();
 
 	/**
-	 * Sets the prodcut version of this pricing.
+	 * Sets the product version of this pricing.
 	 *
-	 * @param prodcutVersion the prodcut version of this pricing
+	 * @param productVersion the product version of this pricing
 	 */
-	public void setProdcutVersion(String prodcutVersion);
+	public void setProductVersion(String productVersion);
 
 	/**
 	 * Returns the contact channel of this pricing.
@@ -276,5 +276,20 @@ public interface PricingModel extends BaseModel<Pricing> {
 	 * @param clientType the client type of this pricing
 	 */
 	public void setClientType(String clientType);
+
+	/**
+	 * Returns the email of this pricing.
+	 *
+	 * @return the email of this pricing
+	 */
+	@AutoEscape
+	public String getEmail();
+
+	/**
+	 * Sets the email of this pricing.
+	 *
+	 * @param email the email of this pricing
+	 */
+	public void setEmail(String email);
 
 }

@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="com.pricning.serv.model.Modelos">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="modeloName" type="String" />
+	</model>
 	<model name="com.pricning.serv.model.Pricing">
 		<field name="uuid" type="String" />
 		<field name="id" type="long" />
@@ -13,9 +18,10 @@
 		<field name="province" type="String" />
 		<field name="productType" type="String" />
 		<field name="productModel" type="String" />
-		<field name="prodcutVersion" type="String" />
+		<field name="productVersion" type="String" />
 		<field name="contactChannel" type="String" />
 		<field name="phone" type="String" />
 		<field name="clientType" type="String" />
+		<field name="email" type="String" />
 	</model>
 </model-hints>
