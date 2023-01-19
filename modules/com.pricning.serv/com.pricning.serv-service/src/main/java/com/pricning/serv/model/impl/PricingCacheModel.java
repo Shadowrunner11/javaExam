@@ -59,7 +59,7 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -83,14 +83,16 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 		sb.append(productType);
 		sb.append(", productModel=");
 		sb.append(productModel);
-		sb.append(", prodcutVersion=");
-		sb.append(prodcutVersion);
+		sb.append(", productVersion=");
+		sb.append(productVersion);
 		sb.append(", contactChannel=");
 		sb.append(contactChannel);
 		sb.append(", phone=");
 		sb.append(phone);
 		sb.append(", clientType=");
 		sb.append(clientType);
+		sb.append(", email=");
+		sb.append(email);
 		sb.append("}");
 
 		return sb.toString();
@@ -172,11 +174,11 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 			pricingImpl.setProductModel(productModel);
 		}
 
-		if (prodcutVersion == null) {
-			pricingImpl.setProdcutVersion("");
+		if (productVersion == null) {
+			pricingImpl.setProductVersion("");
 		}
 		else {
-			pricingImpl.setProdcutVersion(prodcutVersion);
+			pricingImpl.setProductVersion(productVersion);
 		}
 
 		if (contactChannel == null) {
@@ -200,6 +202,13 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 			pricingImpl.setClientType(clientType);
 		}
 
+		if (email == null) {
+			pricingImpl.setEmail("");
+		}
+		else {
+			pricingImpl.setEmail(email);
+		}
+
 		pricingImpl.resetOriginalValues();
 
 		return pricingImpl;
@@ -219,10 +228,11 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 		province = objectInput.readUTF();
 		productType = objectInput.readUTF();
 		productModel = objectInput.readUTF();
-		prodcutVersion = objectInput.readUTF();
+		productVersion = objectInput.readUTF();
 		contactChannel = objectInput.readUTF();
 		phone = objectInput.readUTF();
 		clientType = objectInput.readUTF();
+		email = objectInput.readUTF();
 	}
 
 	@Override
@@ -299,11 +309,11 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 			objectOutput.writeUTF(productModel);
 		}
 
-		if (prodcutVersion == null) {
+		if (productVersion == null) {
 			objectOutput.writeUTF("");
 		}
 		else {
-			objectOutput.writeUTF(prodcutVersion);
+			objectOutput.writeUTF(productVersion);
 		}
 
 		if (contactChannel == null) {
@@ -326,6 +336,13 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 		else {
 			objectOutput.writeUTF(clientType);
 		}
+
+		if (email == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(email);
+		}
 	}
 
 	public String uuid;
@@ -339,9 +356,10 @@ public class PricingCacheModel implements CacheModel<Pricing>, Externalizable {
 	public String province;
 	public String productType;
 	public String productModel;
-	public String prodcutVersion;
+	public String productVersion;
 	public String contactChannel;
 	public String phone;
 	public String clientType;
+	public String email;
 
 }

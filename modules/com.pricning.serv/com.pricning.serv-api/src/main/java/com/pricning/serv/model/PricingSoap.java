@@ -41,10 +41,11 @@ public class PricingSoap implements Serializable {
 		soapModel.setProvince(model.getProvince());
 		soapModel.setProductType(model.getProductType());
 		soapModel.setProductModel(model.getProductModel());
-		soapModel.setProdcutVersion(model.getProdcutVersion());
+		soapModel.setProductVersion(model.getProductVersion());
 		soapModel.setContactChannel(model.getContactChannel());
 		soapModel.setPhone(model.getPhone());
 		soapModel.setClientType(model.getClientType());
+		soapModel.setEmail(model.getEmail());
 
 		return soapModel;
 	}
@@ -186,12 +187,12 @@ public class PricingSoap implements Serializable {
 		_productModel = productModel;
 	}
 
-	public String getProdcutVersion() {
-		return _prodcutVersion;
+	public String getProductVersion() {
+		return _productVersion;
 	}
 
-	public void setProdcutVersion(String prodcutVersion) {
-		_prodcutVersion = prodcutVersion;
+	public void setProductVersion(String productVersion) {
+		_productVersion = productVersion;
 	}
 
 	public String getContactChannel() {
@@ -218,6 +219,14 @@ public class PricingSoap implements Serializable {
 		_clientType = clientType;
 	}
 
+	public String getEmail() {
+		return _email;
+	}
+
+	public void setEmail(String email) {
+		_email = email;
+	}
+
 	private String _uuid;
 	private long _id;
 	private String _firstName;
@@ -229,9 +238,10 @@ public class PricingSoap implements Serializable {
 	private String _province;
 	private String _productType;
 	private String _productModel;
-	private String _prodcutVersion;
+	private String _productVersion;
 	private String _contactChannel;
 	private String _phone;
 	private String _clientType;
+	private String _email;
 
 }

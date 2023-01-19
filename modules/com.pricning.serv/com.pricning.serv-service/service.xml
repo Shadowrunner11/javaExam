@@ -30,4 +30,9 @@
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 	</entity>
+	<entity local-service="true" name="Modelos" remote-service="true" uuid="true">
+		<column name="id" primary="true" type="long" />
+
+		<column name="modeloName" type="String" />
+	</entity>
 </service-builder>

@@ -76,9 +76,9 @@ public class PricingModelImpl
 		{"carModel", Types.VARCHAR}, {"identityDocument", Types.VARCHAR},
 		{"sucursal", Types.VARCHAR}, {"department", Types.VARCHAR},
 		{"province", Types.VARCHAR}, {"productType", Types.VARCHAR},
-		{"productModel", Types.VARCHAR}, {"prodcutVersion", Types.VARCHAR},
+		{"productModel", Types.VARCHAR}, {"productVersion", Types.VARCHAR},
 		{"contactChannel", Types.VARCHAR}, {"phone", Types.VARCHAR},
-		{"clientType", Types.VARCHAR}
+		{"clientType", Types.VARCHAR}, {"email", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -96,14 +96,15 @@ public class PricingModelImpl
 		TABLE_COLUMNS_MAP.put("province", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("productType", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("productModel", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("prodcutVersion", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("productVersion", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("contactChannel", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("phone", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("clientType", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("email", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table PRINCING_Pricing (uuid_ VARCHAR(75) null,id_ LONG not null primary key,firstName VARCHAR(75) null,lastName VARCHAR(75) null,carModel VARCHAR(75) null,identityDocument VARCHAR(75) null,sucursal VARCHAR(75) null,department VARCHAR(75) null,province VARCHAR(75) null,productType VARCHAR(75) null,productModel VARCHAR(75) null,prodcutVersion VARCHAR(75) null,contactChannel VARCHAR(75) null,phone VARCHAR(75) null,clientType VARCHAR(75) null)";
+		"create table PRINCING_Pricing (uuid_ VARCHAR(75) null,id_ LONG not null primary key,firstName VARCHAR(75) null,lastName VARCHAR(75) null,carModel VARCHAR(75) null,identityDocument VARCHAR(75) null,sucursal VARCHAR(75) null,department VARCHAR(75) null,province VARCHAR(75) null,productType VARCHAR(75) null,productModel VARCHAR(75) null,productVersion VARCHAR(75) null,contactChannel VARCHAR(75) null,phone VARCHAR(75) null,clientType VARCHAR(75) null,email VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table PRINCING_Pricing";
 
@@ -154,10 +155,11 @@ public class PricingModelImpl
 		model.setProvince(soapModel.getProvince());
 		model.setProductType(soapModel.getProductType());
 		model.setProductModel(soapModel.getProductModel());
-		model.setProdcutVersion(soapModel.getProdcutVersion());
+		model.setProductVersion(soapModel.getProductVersion());
 		model.setContactChannel(soapModel.getContactChannel());
 		model.setPhone(soapModel.getPhone());
 		model.setClientType(soapModel.getClientType());
+		model.setEmail(soapModel.getEmail());
 
 		return model;
 	}
@@ -318,10 +320,10 @@ public class PricingModelImpl
 			"productModel",
 			(BiConsumer<Pricing, String>)Pricing::setProductModel);
 		attributeGetterFunctions.put(
-			"prodcutVersion", Pricing::getProdcutVersion);
+			"productVersion", Pricing::getProductVersion);
 		attributeSetterBiConsumers.put(
-			"prodcutVersion",
-			(BiConsumer<Pricing, String>)Pricing::setProdcutVersion);
+			"productVersion",
+			(BiConsumer<Pricing, String>)Pricing::setProductVersion);
 		attributeGetterFunctions.put(
 			"contactChannel", Pricing::getContactChannel);
 		attributeSetterBiConsumers.put(
@@ -333,6 +335,9 @@ public class PricingModelImpl
 		attributeGetterFunctions.put("clientType", Pricing::getClientType);
 		attributeSetterBiConsumers.put(
 			"clientType", (BiConsumer<Pricing, String>)Pricing::setClientType);
+		attributeGetterFunctions.put("email", Pricing::getEmail);
+		attributeSetterBiConsumers.put(
+			"email", (BiConsumer<Pricing, String>)Pricing::setEmail);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -523,18 +528,18 @@ public class PricingModelImpl
 
 	@JSON
 	@Override
-	public String getProdcutVersion() {
-		if (_prodcutVersion == null) {
+	public String getProductVersion() {
+		if (_productVersion == null) {
 			return "";
 		}
 		else {
-			return _prodcutVersion;
+			return _productVersion;
 		}
 	}
 
 	@Override
-	public void setProdcutVersion(String prodcutVersion) {
-		_prodcutVersion = prodcutVersion;
+	public void setProductVersion(String productVersion) {
+		_productVersion = productVersion;
 	}
 
 	@JSON
@@ -585,6 +590,22 @@ public class PricingModelImpl
 		_clientType = clientType;
 	}
 
+	@JSON
+	@Override
+	public String getEmail() {
+		if (_email == null) {
+			return "";
+		}
+		else {
+			return _email;
+		}
+	}
+
+	@Override
+	public void setEmail(String email) {
+		_email = email;
+	}
+
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -632,10 +653,11 @@ public class PricingModelImpl
 		pricingImpl.setProvince(getProvince());
 		pricingImpl.setProductType(getProductType());
 		pricingImpl.setProductModel(getProductModel());
-		pricingImpl.setProdcutVersion(getProdcutVersion());
+		pricingImpl.setProductVersion(getProductVersion());
 		pricingImpl.setContactChannel(getContactChannel());
 		pricingImpl.setPhone(getPhone());
 		pricingImpl.setClientType(getClientType());
+		pricingImpl.setEmail(getEmail());
 
 		pricingImpl.resetOriginalValues();
 
@@ -787,12 +809,12 @@ public class PricingModelImpl
 			pricingCacheModel.productModel = null;
 		}
 
-		pricingCacheModel.prodcutVersion = getProdcutVersion();
+		pricingCacheModel.productVersion = getProductVersion();
 
-		String prodcutVersion = pricingCacheModel.prodcutVersion;
+		String productVersion = pricingCacheModel.productVersion;
 
-		if ((prodcutVersion != null) && (prodcutVersion.length() == 0)) {
-			pricingCacheModel.prodcutVersion = null;
+		if ((productVersion != null) && (productVersion.length() == 0)) {
+			pricingCacheModel.productVersion = null;
 		}
 
 		pricingCacheModel.contactChannel = getContactChannel();
@@ -817,6 +839,14 @@ public class PricingModelImpl
 
 		if ((clientType != null) && (clientType.length() == 0)) {
 			pricingCacheModel.clientType = null;
+		}
+
+		pricingCacheModel.email = getEmail();
+
+		String email = pricingCacheModel.email;
+
+		if ((email != null) && (email.length() == 0)) {
+			pricingCacheModel.email = null;
 		}
 
 		return pricingCacheModel;
@@ -926,10 +956,11 @@ public class PricingModelImpl
 	private String _province;
 	private String _productType;
 	private String _productModel;
-	private String _prodcutVersion;
+	private String _productVersion;
 	private String _contactChannel;
 	private String _phone;
 	private String _clientType;
+	private String _email;
 	private long _columnBitmask;
 	private Pricing _escapedModel;
 
